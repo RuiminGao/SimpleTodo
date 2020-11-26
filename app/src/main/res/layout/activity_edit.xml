@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    tools:context=".EditActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/swEditMode"
+        android:layout_marginTop="0dp">
+
+        <EditText
+            android:id="@+id/etEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toEndOf="@id/tvName"
+            android:ems="10"
+            android:hint="Enter your activity here."
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/etEdit"
+            android:layout_alignBottom="@id/etEdit"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center_vertical"
+            android:text="Activity Name: "
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+
+    <Switch
+        android:id="@+id/swEditMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:text="Edit Mode"
+        android:checked="false"/>
+
+    <RelativeLayout
+        android:id="@+id/rlComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlName"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tvComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comment"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/etComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvComment"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:scrollbars="vertical"
+            android:minLines="8"
+            android:inputType="textMultiLine"
+            android:background="#E0F7FA"
+            android:textIsSelectable="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlComments"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="SAVE"
+        android:backgroundTint="@color/teal_200"/>
+
+</RelativeLayout>
+
