@@ -80,7 +80,7 @@
             android:scrollbars="vertical"
             android:minLines="8"
             android:inputType="textMultiLine"
-            android:background="#E0F7FA"
+            android:background="@android:drawable/edit_text"
             android:textIsSelectable="true"/>
     </RelativeLayout>
 
