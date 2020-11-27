@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         items.add(position,itemRemoved);
                         comments.add(position,commentRemoved);
-                      //  itemsAdapter.notifyItemInserted(items.size() - 1);
                         itemsAdapter.notifyDataSetChanged();
+                        Toast.makeText(getApplicationContext(), "Deletion cancelled.", Toast.LENGTH_SHORT).show();
                         saveItems();
                         saveComments();
                         fabReturn.setVisibility(View.INVISIBLE);
