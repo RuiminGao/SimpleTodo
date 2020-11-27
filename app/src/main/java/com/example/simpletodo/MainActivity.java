@@ -79,13 +79,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String todoItem = etNewTask.getText().toString();
-                items.add(todoItem);
-                comments.add("");
-                itemsAdapter.notifyItemInserted(items.size()-1);
-                etNewTask.setText("");
-                Toast.makeText(getApplicationContext(), "Added.", Toast.LENGTH_SHORT).show();
-                saveItems();
-                saveComments();
+                if(todoItem.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please enter your item.", Toast.LENGTH_SHORT).show();
+                } else {
+                    items.add(todoItem);
+                    comments.add("");
+                    itemsAdapter.notifyItemInserted(items.size() - 1);
+                    etNewTask.setText("");
+                    Toast.makeText(getApplicationContext(), "Added.", Toast.LENGTH_SHORT).show();
+                    saveItems();
+                    saveComments();
+                }
             }
         });
     }
