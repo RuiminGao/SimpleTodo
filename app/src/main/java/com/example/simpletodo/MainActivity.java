@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -20,6 +22,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     List<String> comments;
 
     Button btnAdd;
+    FloatingActionButton fabReturn;
     EditText etNewTask;
     RecyclerView rvTasks;
     ItemsAdapter itemsAdapter;
@@ -44,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnAdd = findViewById(R.id.btnAdd);
         etNewTask = findViewById(R.id.etNewTask);
         rvTasks = findViewById(R.id.rvTasks);
+        fabReturn = findViewById(R.id.fabReturn);
 
         loadItems();
         loadComments();
@@ -51,12 +57,33 @@ public class MainActivity extends AppCompatActivity {
         ItemsAdapter.OnLongClickListener onLongClickListener= new ItemsAdapter.OnLongClickListener() {
             @Override
             public void onItemLongClicked(int position) {
-                items.remove(position);
-                comments.remove(position);
+                String itemRemoved = items.remove(position);
+                String commentRemoved = comments.remove(position);
                 itemsAdapter.notifyItemRemoved(position);
                 Toast.makeText(getApplicationContext(),"Removed.",Toast.LENGTH_SHORT).show();
                 saveItems();
                 saveComments();
+                Timer timer = new Timer();
+                fabReturn.setVisibility(View.VISIBLE);
+                fabReturn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        items.add(position,itemRemoved);
+                        comments.add(position,commentRemoved);
+                      //  itemsAdapter.notifyItemInserted(items.size() - 1);
+                        itemsAdapter.notifyDataSetChanged();
+                        saveItems();
+                        saveComments();
+                        fabReturn.setVisibility(View.INVISIBLE);
+                    }
+                });
+                TimerTask task = new TimerTask() {
+                    @Override
+                    public void run() {
+                        fabReturn.setVisibility(View.INVISIBLE);
+                    }
+                };
+                timer.schedule(task,2000);
             }
         };
 
