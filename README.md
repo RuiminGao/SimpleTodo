@@ -4,7 +4,7 @@
 
 Submitted by: **Ruimin Gao**
 
-Time spent: **5** hours spent in total
+Time spent: **7** hours spent in total
 
 ## User Stories
 
@@ -21,8 +21,8 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 * [x] User can add comments to each todo item
-
 * [x] User can open and close edit mode
+* [x] User can undo item deletion
 
 ## Video Walkthrough
 
