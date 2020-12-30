@@ -1,5 +1,7 @@
 package com.example.simpletodo;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +63,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
 
         public void bind(String item) {
             tvItem.setText(item);
+            tvItem.setTypeface(Typeface.SERIF);
+           // tvItem.setBackgroundResource(R.drawable.item);
             tvItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

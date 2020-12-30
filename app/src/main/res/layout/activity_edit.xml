@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/swEditMode"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="16dp">
 
         <EditText
             android:id="@+id/etEdit"
@@ -59,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rlName"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="16dp">
 
         <TextView
             android:id="@+id/tvComment"
@@ -80,19 +81,59 @@
             android:scrollbars="vertical"
             android:minLines="8"
             android:inputType="textMultiLine"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/edit_text"
             android:textIsSelectable="true"/>
+
     </RelativeLayout>
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rlComments"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="SAVE"
-        android:backgroundTint="@color/teal_200"/>
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="SAVE" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlComments"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="16dp"
+        android:text="Due Date: "
+        android:textSize="18sp"/>
+
+    <Spinner
+        android:id="@+id/spYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/textView"
+        />
+
+    <Spinner
+        android:id="@+id/spMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/spYear"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/spYear" />
+
+    <Spinner
+        android:id="@+id/spDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/spMonth"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/spMonth" />
 
 </RelativeLayout>
 
